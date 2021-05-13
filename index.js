@@ -4,7 +4,9 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000;
 
-app.get('/', function (req, res){
+app.use(express.json());
+
+app.get('/users',  (req, res) => {
    const users = [
        {
            id: 1,
@@ -17,17 +19,41 @@ app.get('/', function (req, res){
    ] 
     res.json(users);
 });
-app.post('/', function (req, res){
-    res.end('Hola mundo')
+app.post('/users',  (req, res) => {
+    console.log(`POST with body: ${req.body}`);
+    console.log(req);
+    const user = req.body;
+    user.id = 86546;
+
+    const result = {
+        message: 'User created',
+        user
+    }
+    res.status(201).json(result);
 });
-app.put('/', function (req, res){
-    res.end('Hola mundo')
+app.put('/users/:id',  (req, res) => {
+    const { id } = req.params;
+    const user = req.body;
+
+    user.id = id;
+    const result = {
+        message: 'User updated',
+        user
+    }
+    res.json(result);
 });
-app.patch('/', function (req, res){
-    res.end('Hola mundo')
+app.patch('/users',  (req, res) => {
+    const result = {
+        message: 'User created with patch'
+    }
+    res.json(result);
 });
-app.delete('/', function (req, res){
-    res.end('Hola mundo')
+app.delete('/users/:id',  (req, res) => {
+    const { id } = req.params;
+    const result = {
+        message: `User with id: ${id} deleted`
+    }
+    res.json(result);
 });
 
 app.listen(port, () => {
