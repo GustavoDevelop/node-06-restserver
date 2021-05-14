@@ -1,10 +1,10 @@
 
 require('dotenv').config();
 const express = require('express')
-const app = express()
-const port = process.env.PORT || 3000;
 
-app.use(express.json());
+
+
+
 
 app.get('/users',  (req, res) => {
    const users = [
@@ -56,6 +56,3 @@ app.delete('/users/:id',  (req, res) => {
     res.json(result);
 });
 
-app.listen(port, () => {
-    console.log(`############ App started. Port: ${port} ##########`);
-});
