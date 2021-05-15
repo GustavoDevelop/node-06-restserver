@@ -1,9 +1,17 @@
-const { Routes } = require('express');
+const { Router } = require('express');
+const {
+    getAllUsers,
+     createUser, 
+     updateUser, 
+     updatePartialUser, 
+     DeleteUser
+    } = require('../controllers/users');
+const routes = Router();
 
-const routes = Routes();
+routes.get('/', getAllUsers);
+routes.post('/', createUser);
+routes.put('/:id', updateUser);
+routes.patch('/:id', updatePartialUser);
+routes.delete('/:id', DeleteUser);
 
-routes.get('/');
-routes.post('/');
-routes.put('/:id');
-routes.patch('/');
-routes.delete('/');
+module.exports = routes;

@@ -7,12 +7,19 @@ class ExpressServer {
 
         this.app = express();
         this.port = config.port;
-
+        this.basePathUser = `${config.api.prefix}/users`;
         this._middlewares();
+
+        this._routes();
      }
+     
      _middlewares(){
-        app.use(express.json());
+        this.app.use(express.json());
      }
+     
+     _routes() {
+        this.app.use(this.basePathUser, require('../../routes/users'));
+    }
      async start() {
          
          this.app.listen(this.port, (error) => {
