@@ -45,7 +45,7 @@ const getAllUsers = (req = Request, res) => {
 const updateUser  = (req, res) => {
     const { id } = req.params;
     const user = req.body;
-
+    
     user.id = id;
     const result = {
         message: 'User updated',
