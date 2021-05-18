@@ -12,6 +12,9 @@ class ExpressServer {
         this._middlewares();
 
         this._routes();
+
+        this._notFound();
+        this._errorHandler();
      }
      
      _middlewares(){
@@ -27,6 +30,29 @@ class ExpressServer {
 
 
         this.app.use(this.basePathUser, require('../../routes/users'));
+    }
+
+    _notFound() {
+        this.app.use((req, res, next) => {
+            const err = new Error("Not Found");
+            err.status = 404;
+            err.code = 404;
+            next(err);
+        });
+    }
+
+    _errorHandler(app) {
+        this.app.use((err, req, res, next) => {
+            const code = err.code || 500;
+            res.status(code);
+            const body = {
+                error: {
+                    code,
+                    message: err.message
+                }
+            } 
+            res.json(body);
+        });
     }
      async start() {
          

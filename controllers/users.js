@@ -7,7 +7,7 @@ const express = require('express');
  */
 
 
-const getAllUsers = (req = Request, res) => {
+const getAllUsers = (req,   res) => {
     const users = [
         {
             id: 1,
@@ -25,9 +25,8 @@ const getAllUsers = (req = Request, res) => {
   * @param {express.Request} req 
   * @param {express.Response} res 
   */
- const createUser =(req, res) => {
-    console.log(`POST with body: ${req.body}`);
-    console.log(req);
+ const createUser = (req, res) => {
+    
     const user = req.body;
     user.id = 86546;
 
@@ -47,6 +46,7 @@ const updateUser  = (req, res) => {
     const user = req.body;
     
     user.id = id;
+    
     const result = {
         message: 'User updated',
         user
