@@ -34,7 +34,7 @@ class ExpressServer {
 
     _notFound() {
         this.app.use((req, res, next) => {
-            const err = new Error("Not Found");
+            const err = new Error("Not Found"); 
             err.code = 404;
             next(err);
         });
