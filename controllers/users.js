@@ -7,7 +7,7 @@ const express = require('express');
  */
 
 
-const getAllUsers = (req,   res) => {
+const getAllUsers = (req, res) => {
     const users = [
         {
             id: 1,
@@ -29,7 +29,7 @@ const getAllUsers = (req,   res) => {
  const createUser = (req, res) => {
     
     const user = req.body;
-    user.id = 86546;
+    user.id = 56874;
 
     const result = {
         message: 'User created',
