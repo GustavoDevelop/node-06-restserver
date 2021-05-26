@@ -43,14 +43,13 @@ class ExpressServer {
     _errorHandler() {
         this.app.use((err, req, res, next) => {
             const code = err.code || 500;
-            res.status(code);
             const body = {
                 error: {
                     code,
                     message: err.message
                 }
             } 
-            res.json(body);
+            res.status(code).json(body);
         });
     }
      async start() {
