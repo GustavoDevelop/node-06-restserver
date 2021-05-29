@@ -18,7 +18,6 @@ const getAllUsers = (req, res) => {
          name: 'Marta'
      },
     ] 
-    throw new Error('Ocurrio un error al obtener los usuarios en la base de  datos');
      res.json(users);
  };
  /**
