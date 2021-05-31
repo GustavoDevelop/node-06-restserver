@@ -1,21 +1,25 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Simple Inventory API",
-    "description": "This is a simple API",
+    "title": "API Rest base repo",
+    "description": "This is an Api base to start new proyects",
     "contact": {
-      "email": "you@your-company.com"
+      "email": "alanesgustavoamir@gmail.com"
     },
     "license": {
       "name": "Apache 2.0",
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "1.0.0"
+    "version": "0.0.1"
   },
   "servers": [
     {
-      "url": "https://virtserver.swaggerhub.com/GustavoDevelop/Users/1.0.0",
-      "description": "SwaggerHub API Auto Mocking"
+      "url": "http://localhost:3000/api/v1",
+      "description": "Desarrollo"
+    },
+    {
+      "url": "https://node-06-api-rest.herokuapp.com",
+      "description": "Produccion"
     }
   ],
   "tags": [
